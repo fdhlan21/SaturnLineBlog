@@ -1,0 +1,49 @@
+<%- include('partials/header.ejs') %>
+
+
+<div class="main-container">
+<h1 style="text-align: center; margin-top:20px;">Welcome To You Blog</h1>
+
+
+    <div class="content-blog-container">
+        <div class="card-list">
+           
+    <% if (IsiKonten > 0) { %> <!-- Jika ada konten -->
+        <% contentBlog.forEach((post, index) => { %>
+            <div class="card-content">
+                <h2 style="color: black;"><%= post.judul %></h2>
+                <p id="description-<%= index %>" style="color: black; font-size: 12px; text-align: justify;"><%= post.content %></p>
+
+                <div class="card-btn">
+                    <span class="show-more-btn" onclick="toggleDescription('<%= index %>')">Read More</span>
+                    <form action="/delete/<%= index %>" method="get" style="display: inline;">
+                        <button class="btn-delete" type="submit">Hapus</button>
+                    </form>
+                </div>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <h3>Tidak ada konten untuk ditampilkan.</h3>
+    <% } %>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function toggleDescription(index) {
+        const descriptionElement = document.getElementById(`description-${index}`);
+        const btn = descriptionElement.nextElementSibling.querySelector('.show-more-btn');
+        
+        if (descriptionElement.classList.contains('show-more')) {
+            descriptionElement.classList.remove('show-more');
+            btn.innerText = 'Read More';
+        } else {
+            descriptionElement.classList.add('show-more');
+            btn.innerText = 'Read Less';
+        }
+    }
+</script>
+
+
+<%- include('partials/footer.ejs') %>

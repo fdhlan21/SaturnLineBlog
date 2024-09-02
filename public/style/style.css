@@ -1,0 +1,213 @@
+/* Reset */
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+html, body {
+    height: 100%;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background-color: #393E46;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+main {
+    flex: 1;
+}
+
+/* Navbar */
+.nav-container {
+    padding: 10px;
+    background-color: #00ADB5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align vertically for mobile */
+}
+
+.menu-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-nav {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    font-weight: 600;
+    padding: 10px;
+}
+
+.list-nav > a {
+    text-decoration: none;
+    color: white;
+}
+
+.logo-nav > img {
+    border-radius: 50px;
+    width: 50px; /* Set width for responsive scaling */
+    height: auto;
+}
+
+/* Footer */
+footer {
+    padding: 10px 0;
+    position: relative;
+}
+
+.footer-container {
+    padding: 10px;
+    background-color: #00ADB5;
+    text-align: center;
+    color: white;
+}
+
+/* Form Post */
+.form-post-container {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Make height auto for responsiveness */
+    max-height: 100%;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.form-group {
+    margin-top: 20px;
+    width: 100%; /* Make form group full width on smaller screens */
+    max-width: 350px; /* Set a maximum width */
+}
+
+label {
+    font-weight: 600;
+    padding-left: 15px;
+}
+
+input {
+    width: 100%; /* Full width for input */
+    max-width: 350px; /* Set a maximum width */
+    height: 30px;
+    border-radius: 50px;
+    margin-top: 10px;
+    border: 0px;
+    padding-left: 10px;
+}
+
+/* Content Blog */
+.content-blog-container {
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.card-content {
+    padding: 10px;
+    background-color: white;
+    border-radius: 20px;
+    width: 100%; /* Full width by default */
+    max-width: 500px; /* Set maximum width for larger screens */
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box; /* Include padding in width calculations */
+}
+
+.card-content p {
+    max-height: 100px; /* Limit text height */
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.card-content p.show-more {
+    max-height: none; /* Expand text when show-more class is added */
+}
+
+.show-more-btn {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.card-list {
+    padding: 10px;
+}
+
+.card-btn {
+    padding: 10px;
+    gap: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Button */
+.btn-delete {
+    background-color: rgb(129, 17, 17);
+    width: 100px;
+    height: 30px;
+    color: white;
+    border: 0px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .list-nav {
+        padding: 0;
+        gap: 10px; /* Reduce gap for smaller screens */
+        flex-wrap: wrap; /* Allow navigation to wrap */
+    }
+
+    .form-post-container {
+        flex-direction: column; /* Stack form elements vertically */
+        height: auto; /* Let height adjust automatically */
+    }
+
+    .card-content {
+        width: 90%; /* Reduce card width on smaller screens */
+    }
+
+    .footer-container {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        align-items: center; /* Center align for very small screens */
+    }
+
+    .list-nav {
+        flex-direction: column; /* Stack navigation vertically */
+        gap: 5px; /* Minimize gap */
+    }
+
+    input {
+        width: 90%; /* Use more screen width for input */
+        max-width: 300px; /* Adjust max width */
+    }
+
+    .card-content {
+        width: 100%; /* Full width on smallest screens */
+        max-width: 400px; /* Smaller max width */
+    }
+
+    .btn-delete {
+        width: 80px; /* Reduce button width */
+    }
+}
